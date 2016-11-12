@@ -92,5 +92,11 @@ CI_data <- as.data.frame(cbind(mean_score_CIs, CI_data))
 print(CI_data)
 
 ###PREDICTION INTERVALS
+x_axis_range <- data.frame(gma = c(100),con=c(120))
+PI_data <- predict(my.regression,
+                   newdata = x_axis_range, interval = "prediction", level = 0.95)
+PI_data <- as.data.frame(cbind(x_axis_range, PI_data))
+print(PI_data)
+
 
                     
