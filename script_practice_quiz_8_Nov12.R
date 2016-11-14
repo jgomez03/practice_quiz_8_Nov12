@@ -8,13 +8,14 @@ glimpse(my.data)
 
 ### get initial descriptives
 apa.cor.table(my.data)
-## use ac ratings, has a correlation of .37 with job performance
+## ac ratings has a correlation of .37 with job performance - best predictor? 
 
 ##check for curve. relationship
 psych::pairs.panels(as.data.frame(my.data)) # no concerns 
 
 
 ##gma regression
+##gma on it's OWN
 gmaDV1.regression <- lm(jobperf~gma, data=my.data)
 summary(gmaDV1.regression)
 
@@ -23,12 +24,13 @@ apa.reg.table(gmaDV1.regression)
 #gma r = .51, sr2 = .26, 95% CI = .20, .31
 
 ##gma and con regression
+##gma + add con
 gmacon.regression <- lm(jobperf~gma + con, data=my.data)
 summary(gmaDV1.regression)
 
 apa.reg.table(gmacon.regression)
 summary(gmacon.regression)
-# gma and con R2 = .37, 95% CI[.29,.41]
+# gma and con R2 = .36, 95% CI[.29,.41]
 # consr2 = .10, 95% CI[.05,.14]
 
 ###as a hierarchical regression
@@ -41,7 +43,8 @@ apa.reg.table(reg1)
 #95% CI[.29, .41]
 
 ##QUESTION 2
-# gma and assessment centre ratings 
+# gma and assessment centre ratings
+# add ac ratings to gma
 gmaac.regression <- lm(jobperf~gma + ac, data=my.data)
 summary(gmaac.regression)
 
@@ -80,7 +83,7 @@ block4 = lm(jobperf~gma+graph,data=my.data)
 apa.reg.table(block1, block4)
 
 ###CONFIDENCE INTERVALS
-## find mean
+## find mean from correlation table
 apa.cor.table(my.data)
 #gma mean = 100
 #con mean = 120
