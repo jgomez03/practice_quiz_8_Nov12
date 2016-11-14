@@ -2,7 +2,7 @@
 title: "Lab practice quiz 8"
 author: "Jennifer Gomez"
 date: "November 12, 2016"
-output: pdf_document
+output: word_document
 ---
 
 ###QUESTIONs pg. 1
